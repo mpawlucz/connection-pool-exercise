@@ -16,10 +16,10 @@ public class PoolImplTest {
     void shouldReturnToPoolAfterClose() throws IOException {
 
         PoolImpl pool = new PoolImpl(Arrays.<Connection>asList(new ConnectionImpl()));
-        Connection connection = pool.getConnection();
-        connection.close();
 
+        Connection connection = pool.getConnection();
         assertNull(pool.getConnection());
+        connection.close();
 
         Connection connection2 = pool.getConnection();
         assertNotNull(connection2);
