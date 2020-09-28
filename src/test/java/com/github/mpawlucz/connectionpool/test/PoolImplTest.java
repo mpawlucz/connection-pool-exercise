@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 public class PoolImplTest {
 
     @Test
@@ -16,6 +18,8 @@ public class PoolImplTest {
         PoolImpl pool = new PoolImpl(Arrays.<Connection>asList(new ConnectionImpl()));
         Connection connection = pool.getConnection();
         connection.close();
+
+        assertNotNull(pool.getConnection());
 
     }
 }
