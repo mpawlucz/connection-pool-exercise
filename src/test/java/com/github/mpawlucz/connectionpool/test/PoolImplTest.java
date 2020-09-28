@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PoolImplTest {
 
@@ -19,7 +19,11 @@ public class PoolImplTest {
         Connection connection = pool.getConnection();
         connection.close();
 
-        assertNotNull(pool.getConnection());
+        assertNull(pool.getConnection());
+
+        Connection connection2 = pool.getConnection();
+        assertNotNull(connection2);
+        assertEquals(connection, connection2);
 
     }
 }
