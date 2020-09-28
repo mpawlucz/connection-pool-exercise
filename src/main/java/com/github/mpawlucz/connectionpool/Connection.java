@@ -1,7 +1,9 @@
 package com.github.mpawlucz.connectionpool;
 
-public interface Connection {
+import java.io.Closeable;
+import java.io.IOException;
 
-    void close();
+public interface Connection extends Closeable {
 
+    void close() throws IOException;
 }
