@@ -26,4 +26,14 @@ public class PoolImplTest {
         assertEquals(connection, connection2);
 
     }
+
+    @Test
+    void shouldPreserveInstance(){
+        ConnectionImpl connectionFeed = new ConnectionImpl();
+        PoolImpl pool = new PoolImpl(Arrays.<Connection>asList(connectionFeed));
+
+        Connection connection = pool.getConnection();
+        assertTrue(connection instanceof ConnectionImpl);
+    }
+
 }

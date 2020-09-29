@@ -6,4 +6,5 @@ import java.io.IOException;
 public interface Connection extends Closeable {
 
     void close() throws IOException;
+
 }
